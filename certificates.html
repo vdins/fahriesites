@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sertifikat</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .certificate-card {
+            transition: all 0.3s ease;
+        }
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .dark .certificate-card {
+            background-color: #1e293b;
+        }
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400">Portfolio</a>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                <a href="profile.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Profil</a>
+                <a href="certificates.html" class="text-blue-600 dark:text-blue-400 font-medium">Sertifikat</a>
+                <a href="projects.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Karya</a>
+                <a href="literacy.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Literasiku</a>
+                <a href="education.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Ruang Murid</a>
+                <a href="tahfidz.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tahfidz</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+                    <i data-feather="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Certificates Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Sertifikat & Prestasi</h1>
+            <p class="text-xl max-w-2xl mx-auto">Dokumentasi pencapaian dan penghargaan dalam perjalanan karir dan pendidikan saya</p>
+        </div>
+    </section>
+
+    <!-- Certificates Gallery -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/education/640x360/1" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Frontend Developer Certificate</h3>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium px-2.5 py-0.5 rounded">2023</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh Google Career Certificates</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: FED-2023-001</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/2" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">UI/UX Design Professional</h3>
+                            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm font-medium px-2.5 py-0.5 rounded">2022</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh Coursera</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: UXD-2022-045</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/office/640x360/3" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Mobile App Development</h3>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-medium px-2.5 py-0.5 rounded">2022</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh Udemy</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: MAD-2022-078</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/people/640x360/4" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Web Development Bootcamp</h3>
+                            <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm font-medium px-2.5 py-0.5 rounded">2021</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh FreeCodeCamp</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: WDB-2021-123</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/abstract/640x360/5" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">JavaScript Algorithms</h3>
+                            <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-sm font-medium px-2.5 py-0.5 rounded">2021</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh HackerRank</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: JS-2021-456</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/minimal/640x360/6" alt="Certificate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">React Developer Certificate</h3>
+                            <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-sm font-medium px-2.5 py-0.5 rounded">2020</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4">Diterbitkan oleh Meta</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-slate-500">ID: RDC-2020-789</span>
+                            <button class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Detail <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-16 bg-gray-100 dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Prestasi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="award" class="text-blue-600 dark:text-blue-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Juara 1 Hackathon</h3>
+                    <p class="text-gray-600 dark:text-slate-400">Universitas Teknologi 2022</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="star" class="text-purple-600 dark:text-purple-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Best UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-slate-400">Tech Conference 2021</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="code" class="text-green-600 dark:text-green-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Coding Competition</h3>
+                    <p class="text-gray-600 dark:text-slate-400">National Level 2021</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="users" class="text-orange-600 dark:text-orange-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mentor of the Year</h3>
+                    <p class="text-gray-600 dark:text-slate-400">Community Program 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
+                    <p class="text-slate-400">Showcasing my work and passion</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2023 Ahmad Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark');
+            themeIcon.setAttribute('data-feather', 'sun');
+        } else {
+            themeIcon.setAttribute('data-feather', 'moon');
+        }
+        
+        feather.replace();
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.setAttribute('data-feather', 'sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.setAttribute('data-feather', 'moon');
+            }
+            
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

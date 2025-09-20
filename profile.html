@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Profil</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .dark .card {
+            background-color: #1e293b;
+        }
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400">Portfolio</a>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                <a href="profile.html" class="text-blue-600 dark:text-blue-400 font-medium">Profil</a>
+                <a href="certificates.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Sertifikat</a>
+                <a href="projects.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Karya</a>
+                <a href="literacy.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Literasiku</a>
+                <a href="education.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Ruang Murid</a>
+                <a href="tahfidz.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tahfidz</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+                    <i data-feather="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative">
+                        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                            <img src="https://static.photos/aerial/200x200/0.webp" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                    <h1 class="text-4xl font-bold mb-2">Fahrie Ahmad Almustofa</h1>
+                    <p class="text-xl mb-4">Frontend Developer & UI/UX Designer</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
+                        <div class="bg-white/20 py-2 px-4 rounded-lg">
+                            <p class="font-medium">15 Tahun</p>
+                        </div>
+                        <div class="bg-white/20 py-2 px-4 rounded-lg">
+                            <p class="font-medium">SMAN 3 PAINAN</p>
+                        </div>
+                        <div class="bg-white/20 py-2 px-4 rounded-lg">
+                            <p class="font-medium">Pesisir Selatan, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Personal Info -->
+                <div class="lg:col-span-2">
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 mb-8" data-aos="fade-up">
+                        <h2 class="text-2xl font-bold mb-4">Tentang Saya</h2>
+                        <p class="mb-4 text-gray-700 dark:text-slate-300">
+                            Saya adalah seorang pelajar di SMAN 3 PAINAN dan ingin menjadi seorang Developer.
+                        </p>
+                        <p class="text-gray-700 dark:text-slate-300">
+                            Saya percaya bahwa teknologi harus mudah diakses dan memberikan nilai tambah bagi pengguna. 
+                            Dalam setiap proyek, saya berusaha menggabungkan estetika yang menarik dengan fungsionalitas yang kuat.
+                        </p>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6" data-aos="fade-up">
+                        <h2 class="text-2xl font-bold mb-4">Pendidikan</h2>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-4 py-1">
+                                <h3 class="text-xl font-semibold">SMAN 3 PAINAN</h3>
+                                <p class="text-blue-600 dark:text-blue-400">2025 - Sekarang</p>
+                                <p class="mt-2 text-gray-700 dark:text-slate-300">
+                                    Saat ini saya sedang menempuh pendidikan di SMAN 3 PAINAN dengan fokus pada pengembangan keterampilan akademik dan non-akademik.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-purple-500 pl-4 py-1">
+                                <h3 class="text-xl font-semibold">MTsN 1 Pesisir Selatan</h3>
+                                <p class="text-purple-600 dark:text-purple-400">2022 - 2025</p>
+                                <p class="mt-2 text-gray-700 dark:text-slate-300">
+                                    Saya menyelesaikan pendidikan menengah pertama di MTsN 1 Pesisir Selatan, di mana saya mengembangkan dasar-dasar pengetahuan dan keterampilan yang kuat.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-yellow-500 pl-4 py-1">
+                                <h3 class="text-xl font-semibold">SD N 14 LABAN</h3>
+                                <p class="text-yellow-600 dark:text-yellow-400">2016 - 2022</p>
+                                <p class="mt-2 text-gray-700 dark:text-slate-300">
+                                    Saya memulai perjalanan pendidikan saya di SD N 14 LABAN, di mana saya belajar dasar-dasar akademik dan membangun fondasi untuk masa depan saya.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div>
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 mb-8" data-aos="fade-up">
+                        <h2 class="text-2xl font-bold mb-4">Minat & Hobi</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i data-feather="code" class="text-blue-500 mr-3"></i>
+                                <span>Pengembangan Web</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="smartphone" class="text-green-500 mr-3"></i>
+                                <span>Desain Mobile</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="layout" class="text-purple-500 mr-3"></i>
+                                <span>UI/UX Design</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="book" class="text-orange-500 mr-3"></i>
+                                <span>Membaca</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="music" class="text-red-500 mr-3"></i>
+                                <span>Bermusik</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="camera" class="text-pink-500 mr-3"></i>
+                                <span>Fotografi</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6" data-aos="fade-up">
+                        <h2 class="text-2xl font-bold mb-4">Kontak</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i data-feather="mail" class="text-blue-500 mr-3"></i>
+                                <span>fahrieahmd@gmail.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="phone" class="text-green-500 mr-3"></i>
+                                <span>+62-838-9515-2817</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="map-pin" class="text-red-500 mr-3"></i>
+                                <span>Pesisir Selatan, Indonesia</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
+                    <p class="text-slate-400">Terimakasih sudah berkunjung</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 Fahrie Ahmad Almustofa Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark');
+            themeIcon.setAttribute('data-feather', 'sun');
+        } else {
+            themeIcon.setAttribute('data-feather', 'moon');
+        }
+        
+        feather.replace();
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.setAttribute('data-feather', 'sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.setAttribute('data-feather', 'moon');
+            }
+            
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
