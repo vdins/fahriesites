@@ -1,295 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Home</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%);
-        }
-        .dark .hero-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-        }
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .typing-cursor::after {
-            content: "|";
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        .counter {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .progress-bar {
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            transition: width 2s ease-in-out;
-        }
-        .dark .card {
-            background-color: #1e293b;
-        }
-        .dark body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        .pattern-bg {
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .dark .pattern-bg {
-            background-image: radial-gradient(#334155 1px, transparent 1px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Home</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f8f9fa;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%);
+    }
+    .dark .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    }
+    .card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    .typing-cursor::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .animate-slideInLeft {
+      animation: slideInLeft 0.8s ease-out;
+    }
+    .animate-slideInRight {
+      animation: slideInRight 0.8s ease-out;
+    }
+    .animate-pulse-custom {
+      animation: pulse 2s infinite;
+    }
+    .navbar-slide {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .navbar-slide.show {
+      transform: translateY(0);
+    }
+    .menu-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      transition: width 0.3s ease;
+    }
+    .menu-item:hover::before {
+      width: 100%;
+    }
+    .counter {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .progress-bar {
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      transition: width 2s ease-in-out;
+    }
+    .dark .card {
+      background-color: #1e293b;
+    }
+    .dark body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .pattern-bg {
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: patternMove 20s linear infinite;
+    }
+    .dark .pattern-bg {
+      background-image: radial-gradient(#334155 1px, transparent 1px);
+    }
+    @keyframes patternMove {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 20px 20px;
+      }
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+  </style>
 </head>
-<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200">
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400">Portfolio</a>
-            <div class="flex items-center space-x-6">
-                <a href="index.html" class="text-blue-600 dark:text-blue-400 font-medium">Home</a>
-                <a href="profile.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Profil</a>
-                <a href="certificates.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Sertifikat</a>
-                <a href="projects.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Karya</a>
-                <a href="literacy.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Literasiku</a>
-                <a href="education.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Ruang Murid</a>
-                <a href="tahfidz.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tahfidz</a>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
-                    <i data-feather="moon" class="w-5 h-5"></i>
-                </button>
-            </div>
+<body
+  class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200"
+>
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg navbar-slide show">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400 animate-pulse-custom">
+        Portfolio
+      </a>
+
+      <!-- Hamburger Button (mobile only) -->
+      <button id="menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Menu Links -->
+      <div id="menu" class="hidden lg:flex flex-col lg:flex-row items-center lg:space-x-8 absolute lg:static top-16 left-0 w-full lg:w-auto bg-white dark:bg-slate-800 lg:bg-transparent shadow-md lg:shadow-none p-4 lg:p-0 transition-all duration-300">
+        <a href="index.html" class="menu-item text-blue-600 dark:text-blue-400 font-medium py-2 px-1">Home</a>
+        <a href="profile.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Profil</a>
+        <a href="certificates.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Sertifikat</a>
+        <a href="projects.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Karya</a>
+        <a href="literacy.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Literasiku</a>
+        <a href="education.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Ruang Murid</a>
+        <a href="tahfidz.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Tahfidz</a>
+        <button id="theme-toggle" class="mt-3 lg:mt-0 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+          <i data-feather="moon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white min-h-screen flex items-center pt-16">
+    <div
+      class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center"
+    >
+      <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Hi There, I'm
+          <span class="text-orange-400">Fahrie Ahmad Almustofa</span>
+        </h1>
+        <div class="text-2xl md:text-3xl mb-6 h-12">
+          I am
+          <span id="typed-text" class="typing-cursor text-orange-400"></span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-bg text-white min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi There, I'm <span class="text-orange-400">Fahrie Ahmad Almustofa</span></h1>
-                <div class="text-2xl md:text-3xl mb-6 h-12">
-                    I am <span id="typed-text" class="typing-cursor text-orange-400"></span>
-                </div>
-                <p class="text-lg mb-8 max-w-lg">Belajar Berkarya</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="profile.html" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center">
-                        <i data-feather="user" class="mr-2"></i> About Me
-                    </a>
-                    <!-- Hero Section -->
-<div class="flex space-x-4">
-    <a href="https://instagram.com/fahrieahmd" target="_blank" class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition">
-        <i data-feather="instagram"></i>
-    </a>
-    <a href="https://wa.me/6283895152817" target="_blank" class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition">
-        <i data-feather="phone"></i>
-    </a>
-</div>
-
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
-                <div class="relative">
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-orange-400 rounded-full overflow-hidden border-4 border-white dark:border-slate-700">
-                        <img src="https://static.photos/black/200x200/60.webp" alt="Profile" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white py-2 px-4 rounded-lg shadow-lg">
-                        <p class="font-medium">SMAN 3 PAINAN Student</p>
-                    </div>
-                </div>
-            </div>
+        <p class="text-lg mb-8 max-w-lg">Belajar Berkarya</p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="profile.html"
+            class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center"
+          >
+            <i data-feather="user" class="mr-2"></i> About Me
+          </a>
+          <div class="flex space-x-4">
+            <a
+              href="https://instagram.com/fahrieahmd"
+              target="_blank"
+              class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition"
+            >
+              <i data-feather="instagram"></i>
+            </a>
+            <a
+              href="https://wa.me/6283895152817"
+              target="_blank"
+              class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition"
+            >
+              <i data-feather="phone"></i>
+            </a>
+          </div>
         </div>
-    </section>
-
-    <!-- Motto Section -->
-    <section class="py-16 pattern-bg">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-6">My Life Motto</h2>
-                <blockquote class="text-xl italic border-l-4 border-orange-500 pl-6 py-4 bg-white dark:bg-slate-800 rounded-r-lg shadow">
-                    "Design is not just what it looks like and feels like. Design is how it works."
-                </blockquote>
-                <p class="mt-4 text-gray-600 dark:text-slate-400">- Steve Jobs</p>
-            </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+        <div class="relative">
+          <div
+            class="w-64 h-64 md:w-80 md:h-80 bg-orange-400 rounded-full overflow-hidden border-4 border-white dark:border-slate-700"
+          >
+            <img
+              src="https://static.photos/black/200x200/60.webp"
+              alt="Profile"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="absolute -bottom-4 -right-4 bg-blue-600 text-white py-2 px-4 rounded-lg shadow-lg"
+          >
+            <p class="font-medium">SMAN 3 PAINAN Student</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Aktivitas Utama Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Aktivitas Utama</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="user" class="text-blue-600 dark:text-blue-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Profil</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Perkenalan singkat tentang diri, latar belakang, dan perjalanan saya.</p>
-                </div>
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="award" class="text-purple-600 dark:text-purple-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Sertifikat</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Kumpulan sertifikat prestasi dan penghargaan yang pernah saya raih.</p>
-                </div>
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="briefcase" class="text-orange-600 dark:text-orange-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Karya</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Hasil karya saya berupa proyek coding, desain, maupun penelitian.</p>
-                </div>
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="book-open" class="text-green-600 dark:text-green-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Literasiku</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Tulisan dan catatan saya seputar bacaan, opini, atau ide-ide kreatif.</p>
-                </div>
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="users" class="text-pink-600 dark:text-pink-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Ruang Murid</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Tempat saya berbagi pengalaman belajar dan aktivitas sekolah.</p>
-                </div>
-                <div class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="book" class="text-yellow-600 dark:text-yellow-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Tahfidz</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Perjalanan saya dalam menghafal dan mempelajari Al-Qur'an.</p>
-                </div>
-            </div>
+  <!-- Motto Section -->
+  <section class="py-16 pattern-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-6">My Life Motto</h2>
+        <blockquote
+          class="text-xl italic border-l-4 border-orange-500 pl-6 py-4 bg-white dark:bg-slate-800 rounded-r-lg shadow"
+        >
+          "Design is not just what it looks like and feels like. Design is how
+          it works."
+        </blockquote>
+        <p class="mt-4 text-gray-600 dark:text-slate-400">- Steve Jobs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aktivitas Utama Section -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">
+        Aktivitas Utama
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- cards -->
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="user"
+              class="text-blue-600 dark:text-blue-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Profil</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Perkenalan singkat tentang diri, latar belakang, dan perjalanan saya.
+          </p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
-                    <p class="text-slate-400">Terimakasih sudah berkunjung</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-slate-400 hover:text-white transition">
-                        <i data-feather="github"></i>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-white transition">
-                        <i data-feather="linkedin"></i>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-white transition">
-                        <i data-feather="twitter"></i>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-white transition">
-                        <i data-feather="instagram"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-                <p>&copy; 2025 Fahrie Ahmad Almustofa Portfolio. All rights reserved.</p>
-            </div>
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div
+            class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="award"
+              class="text-purple-600 dark:text-purple-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Sertifikat</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Kumpulan sertifikat prestasi dan penghargaan yang pernah saya raih.
+          </p>
         </div>
-    </footer>
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div
+            class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="briefcase"
+              class="text-orange-600 dark:text-orange-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Karya</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Hasil karya saya berupa proyek coding, desain, maupun penelitian.
+          </p>
+        </div>
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <div
+            class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="book-open"
+              class="text-green-600 dark:text-green-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Literasiku</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Tulisan dan catatan saya seputar bacaan, opini, atau ide-ide kreatif.
+          </p>
+        </div>
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div
+            class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="users"
+              class="text-pink-600 dark:text-pink-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Ruang Murid</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Tempat saya berbagi pengalaman belajar dan aktivitas sekolah.
+          </p>
+        </div>
+        <div
+          class="card bg-white dark:bg-slate-800 p-6 rounded-xl shadow"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <div
+            class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4"
+          >
+            <i
+              data-feather="book"
+              class="text-yellow-600 dark:text-yellow-400 w-6 h-6"
+            ></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Tahfidz</h3>
+          <p class="text-gray-600 dark:text-slate-400">
+            Perjalanan saya dalam menghafal dan mempelajari Al-Qur'an.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i data-feather="arrow-up"></i>
-    </button>
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
+          <p class="text-slate-400">Terimakasih sudah berkunjung</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://instagram.com/fahrieahmd" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="Instagram @fahrieahmd">
+            <i data-feather="instagram"></i>
+          </a>
+          <a href="https://wa.me/6283895152817" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="WhatsApp +6283895152817">
+            <i data-feather="phone"></i>
+          </a>
+        </div>
+      </div>
+      <div
+        class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400"
+      >
+        <p>&copy; 2025 Fahrie Ahmad Almustofa Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out'
-        });
+  <!-- Scroll to Top Button -->
+  <button
+    id="scroll-top"
+    class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300"
+  >
+    <i data-feather="arrow-up"></i>
+  </button>
 
-        // Initialize Feather Icons
-        feather.replace();
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+    });
 
-        // Typed.js for typing animation
-        new Typed('#typed-text', {
-            strings: ['Student', 'In', 'SMAN 3 PAINAN', 'Right Now'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
+    // Initialize Feather Icons
+    feather.replace();
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or respect OS preference
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        const currentTheme = localStorage.getItem('theme');
-        
-        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-            document.body.classList.add('dark');
-            themeIcon.setAttribute('data-feather', 'sun');
-        } else {
-            themeIcon.setAttribute('data-feather', 'moon');
-        }
-        
-        feather.replace();
-        
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark');
-            
-            if (document.body.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.setAttribute('data-feather', 'sun');
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.setAttribute('data-feather', 'moon');
-            }
-            
-            feather.replace();
-        });
+    // Typed.js for typing animation
+    new Typed("#typed-text", {
+      strings: ["Student", "In", "SMAN 3 PAINAN", "Right Now"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+    });
 
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.remove('opacity-0', 'invisible');
-                scrollTopBtn.classList.add('opacity-100', 'visible');
-            } else {
-                scrollTopBtn.classList.add('opacity-0', 'invisible');
-                scrollTopBtn.classList.remove('opacity-100', 'visible');
-            }
-        });
-        
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    // Theme Toggle (robust with Feather icons)
+    const themeToggle = document.getElementById("theme-toggle");
+
+    function applyThemeFromStorage() {
+      const prefersDarkScheme = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+      const currentTheme = localStorage.getItem("theme");
+      const isDark =
+        currentTheme === "dark" ||
+        (!currentTheme && prefersDarkScheme.matches);
+      document.body.classList.toggle("dark", isDark);
+    }
+
+    function renderThemeIcon() {
+      const isDark = document.body.classList.contains("dark");
+      themeToggle.innerHTML = `<i data-feather="${
+        isDark ? "sun" : "moon"
+      }" class="w-5 h-5"></i>`;
+      feather.replace();
+    }
+
+    applyThemeFromStorage();
+    renderThemeIcon();
+
+    themeToggle.addEventListener("click", function () {
+      const willBeDark = !document.body.classList.contains("dark");
+      document.body.classList.toggle("dark", willBeDark);
+      localStorage.setItem("theme", willBeDark ? "dark" : "light");
+      renderThemeIcon();
+    });
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById("scroll-top");
+
+    window.addEventListener("scroll", function () {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.remove("opacity-0", "invisible");
+        scrollTopBtn.classList.add("opacity-100", "visible");
+      } else {
+        scrollTopBtn.classList.add("opacity-0", "invisible");
+        scrollTopBtn.classList.remove("opacity-100", "visible");
+      }
+    });
+
+    scrollTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    // Hamburger toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+  <script src="player.js"></script>
 </body>
 </html>

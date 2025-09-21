@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Literasiku</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .navbar-slide {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .navbar-slide.show {
+            transform: translateY(0);
+        }
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        .menu-item:hover::before {
+            width: 100%;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-pulse-custom { animation: pulse 2s infinite; }
+        .dark .card {
+            background-color: #1e293b;
+        }
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg navbar-slide show">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400 animate-pulse-custom">Portfolio</a>
+
+            <!-- Hamburger Button (mobile only) -->
+            <button id="menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Menu Links -->
+            <div id="menu" class="hidden lg:flex flex-col lg:flex-row items-center lg:space-x-8 absolute lg:static top-16 left-0 w-full lg:w-auto bg-white dark:bg-slate-800 lg:bg-transparent shadow-md lg:shadow-none p-4 lg:p-0 transition-all duration-300">
+                <a href="index.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Home</a>
+                <a href="profile.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Profil</a>
+                <a href="certificates.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Sertifikat</a>
+                <a href="projects.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Karya</a>
+                <a href="literacy.html" class="menu-item text-blue-600 dark:text-blue-400 font-medium py-2 px-1">Literasiku</a>
+                <a href="education.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Ruang Murid</a>
+                <a href="tahfidz.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Tahfidz</a>
+                <button id="theme-toggle" class="mt-3 lg:mt-0 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+                    <i data-feather="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Literacy Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Literasiku</h1>
+            <p class="text-xl max-w-2xl mx-auto">Perjalanan pembelajaran dan pengetahuan saya melalui berbagai bentuk literasi</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up">
+                    <div class="counter text-blue-600 dark:text-blue-400 mb-2" data-target="5">0</div>
+                    <h3 class="text-xl font-semibold">Artikel Dibaca</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2">Tulisan dan opini seputar teknologi</p>
+                </div>
+                
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="counter text-purple-600 dark:text-purple-400 mb-2" data-target="6">0</div>
+                    <h3 class="text-xl font-semibold">Buku Dibaca</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2">Koleksi buku yang telah saya baca</p>
+                </div>
+                
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="counter text-green-600 dark:text-green-400 mb-2" data-target="20">0</div>
+                    <h3 class="text-xl font-semibold">Komik Dibaca</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2">Komik yang berisi juga ilmu pengetahuan</p>
+                </div>
+            </div>
+
+            <!-- Latest Articles -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Artikel Terbaru</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://www.reuters.com/resizer/v2/FEFNNFNE7FJVVPW2FJ5HYQLT6Q.jpg?auth=9c3aac12c5e5c52dd8e9d259966a6eae2193187f95de572d67a44db6d278dfd3&width=720&quality=80" alt="Article" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium px-2.5 py-0.5 rounded">Teknologi</span>
+                                <span class="text-gray-500 dark:text-slate-400 text-sm">September 19, 2025 8:46 PM GMT+7</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">OpenAI taps Apple supplier to make AI device</h3>
+                            <p class="text-gray-600 dark:text-slate-400 mb-4">OpenAI bekerja sama dengan Luxshare (pemasok Apple) untuk membuat perangkat konsumen yang “AI-native”</p>
+                            <a href="https://www.reuters.com/world/china/openai-taps-apple-supplier-make-ai-device-information-reports-2025-09-19" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Baca selengkapnya <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://cdn.mos.cms.futurecdn.net/2d5GJCfUuSnP7BPtUo6wxJ-970-80.jpg.webp" alt="Article" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm font-medium px-2.5 py-0.5 rounded">Teknologi</span>
+                                <span class="text-gray-500 dark:text-slate-400 text-sm">17 September 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">AMD says its next-gen FSR ‘Redstone’ AI upscaling tech can run on Nvidia GPUs</h3>
+                            <p class="text-gray-600 dark:text-slate-400 mb-4">Teknologi upscaling AI baru dari AMD, “FSR Redstone”, dirancang agar bisa bekerja tidak cuma di GPU AMD tapi juga GPU Nvidia. Ini penting karena pengguna jadi gak tergantung satu merk, khususnya buat game dan visual.</p>
+                            <a href="https://www.pcgamer.com/hardware/graphics-cards/amd-says-its-next-gen-fsr-redstone-ai-upscaling-tech-can-run-on-nvidia-gpus/?utm_source=chatgpt.com" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                Baca selengkapnya <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Collection -->
+            <div>
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Koleksi Buku</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up">
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rash-m0sdal44wgr03c" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">Super Master OSN Informatika Bahasa C SMA</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Singgih Satrio Wibowo</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="50">
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://images.tokopedia.net/img/cache/700/o3syd0/1997/1/1/a4cce0d33c034e6189be91a14d8e781a~.jpeg" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">Master Juara Olimpiade Sains Nasional (OSN) Matematika SMP/MTS Tingkat Kabupaten/Kota, Provinsi, dan Nasional</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Dr. Iwan Kuswidi, M.Sc</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/MTA-104675681/bumi_aksara_sejarah_pendidikan_indonesia_prof-_dr-_s-_nasution_m-a-_bumi_aksara_aj-pndk_full01_gkbu82to.jpg" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">Sejarah Pendidikan Indonesia</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Prof. Dr. S. Nasution, M.A</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="150">
+                        <div class="h-40 overflow-hidden">
+                            <img src="https://i0.wp.com/sufimuda.net/wp-content/uploads/2023/11/Atomic-Habits-by-James-Clear.jpg?ssl=1" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">Atomic Habits</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">James Clear</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-40 overflow-hidden">
+                            <img src="http://static.photos/minimal/320x240/34" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">The Pragmatic Programmer</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Andrew Hunt</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="250">
+                        <div class="h-40 overflow-hidden">
+                            <img src="http://static.photos/technology/320x240/35" alt="Book" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm">Don't Make Me Think</h3>
+                            <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Steve Krug</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div>
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Koleksi Komik</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up">
+            <div class="h-40 overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrIHzKV2Rs2e4k8555XeRQ_urZOHX78cBU3Q&s" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 1</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="50">
+            <div class="h-40 overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZFT-bFtG_dxad8bBKM_PevQiqtVq7iptVjQ&s" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 2</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-40 overflow-hidden">
+                <img src="https://cdn.gramedia.com/uploads/items/9786230017797_Cov_Conan_Premium_03_1.jpg" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 3</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="h-40 overflow-hidden">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1604620554i/55851749.jpg" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 4</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-40 overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDJdwlKEJQqz5BmghBQ40sN8-N_SUjf_7dGw&s" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 5</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+
+        <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-center" data-aos="fade-up" data-aos-delay="250">
+            <div class="h-40 overflow-hidden">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1612939745i/57017604.jpg" alt="Komik Detektif Conan" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-sm">Detektif Conan Vol 6</h3>
+                <p class="text-gray-600 dark:text-slate-400 text-xs mt-1">Aoyama Gosho</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Reading Progress -->
+    <section class="py-16 bg-gray-100 dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Progres Membaca</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="card bg-white dark:bg-slate-700 rounded-xl shadow-md p-6 mb-6" data-aos="fade-up">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-semibold">Sapiens: A Brief History of Humankind</h3>
+                        <span class="text-blue-600 dark:text-blue-400 font-medium">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-slate-600 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-gray-600 dark:text-slate-400 text-sm mt-2">Yuval Noah Harari</p>
+                </div>
+
+                <div class="card bg-white dark:bg-slate-700 rounded-xl shadow-md p-6 mb-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-semibold">The Lean Startup</h3>
+                        <span class="text-green-600 dark:text-green-400 font-medium">50%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-slate-600 rounded-full h-2.5">
+                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 50%"></div>
+                    </div>
+                    <p class="text-gray-600 dark:text-slate-400 text-sm mt-2">Eric Ries</p>
+                </div>
+
+                <div class="card bg-white dark:bg-slate-700 rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-semibold">Thinking, Fast and Slow</h3>
+                        <span class="text-purple-600 dark:text-purple-400 font-medium">30%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-slate-600 rounded-full h-2.5">
+                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 30%"></div>
+                    </div>
+                    <p class="text-gray-600 dark:text-slate-400 text-sm mt-2">Daniel Kahneman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
+                    <p class="text-slate-400">Terimakasih sudah berkunjung</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://instagram.com/fahrieahmd" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="Instagram @fahrieahmd">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="https://wa.me/6283895152817" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="WhatsApp +6283895152817">
+                        <i data-feather="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 Fahrie Ahmad Almustofa Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Counter Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                
+                anime({
+                    targets: counter,
+                    innerHTML: [0, target],
+                    duration: duration,
+                    round: 1,
+                    easing: 'linear'
+                });
+            });
+        });
+
+        // Theme Toggle (robust with Feather icons)
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function applyThemeFromStorage() {
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const currentTheme = localStorage.getItem('theme');
+            const isDark = currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches);
+            document.body.classList.toggle('dark', isDark);
+        }
+
+        function renderThemeIcon() {
+            const isDark = document.body.classList.contains('dark');
+            themeToggle.innerHTML = `<i data-feather="${isDark ? 'sun' : 'moon'}" class="w-5 h-5"></i>`;
+            feather.replace();
+        }
+
+        applyThemeFromStorage();
+        renderThemeIcon();
+
+        themeToggle.addEventListener('click', function() {
+            const willBeDark = !document.body.classList.contains('dark');
+            document.body.classList.toggle('dark', willBeDark);
+            localStorage.setItem('theme', willBeDark ? 'dark' : 'light');
+            renderThemeIcon();
+        });
+
+        // Hamburger toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        if (menuToggle && menu) {
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script src="player.js"></script>
+</body>
+</html>

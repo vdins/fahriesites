@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Tahfidz</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .navbar-slide { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
+        .navbar-slide.show { transform: translateY(0); }
+        .menu-item { position: relative; overflow: hidden; }
+        .menu-item::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.3s ease; }
+        .menu-item:hover::before { width: 100%; }
+        .dark .card {
+            background-color: #1e293b;
+        }
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            transition: width 2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-200">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg navbar-slide show">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-800 dark:text-blue-400 animate-pulse-custom">Portfolio</a>
+
+            <!-- Hamburger Button (mobile only) -->
+            <button id="menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Menu Links -->
+            <div id="menu" class="hidden lg:flex flex-col lg:flex-row items-center lg:space-x-8 absolute lg:static top-16 left-0 w-full lg:w-auto bg-white dark:bg-slate-800 lg:bg-transparent shadow-md lg:shadow-none p-4 lg:p-0 transition-all duration-300">
+                <a href="index.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Home</a>
+                <a href="profile.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Profil</a>
+                <a href="certificates.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Sertifikat</a>
+                <a href="projects.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Karya</a>
+                <a href="literacy.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Literasiku</a>
+                <a href="education.html" class="menu-item hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 py-2 px-1">Ruang Murid</a>
+                <a href="tahfidz.html" class="menu-item text-blue-600 dark:text-blue-400 font-medium py-2 px-1">Tahfidz</a>
+                <button id="theme-toggle" class="mt-3 lg:mt-0 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110">
+                    <i data-feather="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tahfidz Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-green-600 to-teal-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Perjalanan Tahfidz</h1>
+            <p class="text-xl max-w-2xl mx-auto">Mencatat perjalanan penghafalan Al-Qur'an dan pencapaian spiritual saya</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up">
+                    <div class="counter text-green-600 dark:text-green-400 mb-2" data-target="0">0</div>
+                    <h3 class="text-xl font-semibold">Juz</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2">Telah Dihafal</p>
+                </div>
+                
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="counter text-teal-600 dark:text-teal-400 mb-2" data-target="8">0</div>
+                    <h3 class="text-xl font-semibold">Surah</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2">Dikuasai</p>
+                </div>
+                
+                <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="counter text-blue-600 dark:text-blue-400 mb-2" data-target="30">0</div>
+                    <h3 class="text-xl font-semibold">Hari</h3>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Progres Penghafalan</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 mb-6" data-aos="fade-up">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="font-semibold">Juz Amma (Juz 30)</h3>
+                            <span class="text-green-600 dark:text-green-400 font-medium">21,62%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 21.62%"></div>
+                        </div>
+                    </div>
+
+            <!-- Recent Achievements -->
+            <div>
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Pencapaian Terbaru</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6" data-aos="fade-up">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-4">
+                            <i data-feather="award" class="text-green-600 dark:text-green-400 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Hafalan</h3>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4"></p>
+                        <span class="text-sm text-gray-500 dark:text-slate-500">Tanggal:</span>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mb-4">
+                            <i data-feather="target" class="text-teal-600 dark:text-teal-400 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2"></h3>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4"></p>
+                        <span class="text-sm text-gray-500 dark:text-slate-500"></span>
+                    </div>
+
+                    <div class="card bg-white dark:bg-slate-800 rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                            <i data-feather="book-open" class="text-blue-600 dark:text-blue-400 w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">8 Surah Dikuasai</h3>
+                        <p class="text-gray-600 dark:text-slate-400 mb-4"></p>
+                        <span class="text-sm text-gray-500 dark:text-slate-500"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection Section -->
+    <section class="py-16 bg-gray-100 dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Refleksi Spiritual</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="card bg-white dark:bg-slate-700 rounded-xl shadow-md p-6 mb-6" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-3">Konsistensi dalam Hafalan</h3>
+                    <p class="text-gray-700 dark:text-slate-300 mb-4">
+                        Perjalanan tahfidz mengajarkan saya pentingnya konsistensi dan kesabaran. Setiap hari menghafal 
+                        beberapa ayat memberikan kedamaian yang luar biasa. Saya merasakan perubahan dalam pemahaman 
+                        dan koneksi spiritual saya dengan Al-Qur'an.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                            <img src="http://static.photos/people/320x240/60" alt="Author" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-medium">Fahrie Ahmad Almustofa</p>
+                            <p class="text-sm text-gray-600 dark:text-slate-400">2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white dark:bg-slate-700 rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-3">Manfaat Hafalan dalam Kehidupan</h3>
+                    <p class="text-gray-700 dark:text-slate-300 mb-4">
+                        Hafalan Al-Qur'an tidak hanya memperkaya pengetahuan spiritual, tetapi juga membentuk karakter 
+                        dan etika dalam kehidupan sehari-hari. Ayat-ayat yang dihafal seringkali menjadi petunjuk 
+                        dalam menghadapi berbagai situasi kehidupan.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                            <img src="http://static.photos/people/320x240/61" alt="Author" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-medium">Fahrie Ahmad Almustofa</p>
+                            <p class="text-sm text-gray-600 dark:text-slate-400">2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Portfolio</h3>
+                    <p class="text-slate-400">Terimakasih sudah berkunjung</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://instagram.com/fahrieahmd" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="Instagram @fahrieahmd">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="https://wa.me/6283895152817" target="_blank" class="text-slate-400 hover:text-white transition" aria-label="WhatsApp +6283895152817">
+                        <i data-feather="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2025 Fahrie Ahmad Almustofa Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Counter Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                
+                anime({
+                    targets: counter,
+                    innerHTML: [0, target],
+                    duration: duration,
+                    round: 1,
+                    easing: 'linear'
+                });
+            });
+        });
+
+        // Theme Toggle (robust with Feather icons)
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function applyThemeFromStorage() {
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const currentTheme = localStorage.getItem('theme');
+            const isDark = currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches);
+            document.body.classList.toggle('dark', isDark);
+        }
+
+        function renderThemeIcon() {
+            const isDark = document.body.classList.contains('dark');
+            themeToggle.innerHTML = `<i data-feather="${isDark ? 'sun' : 'moon'}" class="w-5 h-5"></i>`;
+            feather.replace();
+        }
+
+        applyThemeFromStorage();
+        renderThemeIcon();
+
+        themeToggle.addEventListener('click', function() {
+            const willBeDark = !document.body.classList.contains('dark');
+            document.body.classList.toggle('dark', willBeDark);
+            localStorage.setItem('theme', willBeDark ? 'dark' : 'light');
+            renderThemeIcon();
+        });
+
+        // Hamburger toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        if (menuToggle && menu) {
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+<script src="player.js"></script>
+</body>
+</html>
